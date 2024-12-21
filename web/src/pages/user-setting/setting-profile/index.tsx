@@ -16,15 +16,13 @@ import {
   Upload,
   UploadFile,
 } from 'antd';
-import camelCase from 'lodash/camelCase';
+
 import { useEffect } from 'react';
 import SettingTitle from '../components/setting-title';
 import { TimezoneList } from '../constants';
 import { useValidateSubmittable } from '../hooks';
 
-import { LanguageList } from '@/constants/common';
 import { useTranslate } from '@/hooks/common-hooks';
-import { useChangeLanguage } from '@/hooks/logic-hooks';
 import parentStyles from '../index.less';
 import styles from './index.less';
 
@@ -48,7 +46,6 @@ const UserSettingProfile = () => {
   const { saveSetting, loading: submitLoading } = useSaveSetting();
   const { form, submittable } = useValidateSubmittable();
   const { t } = useTranslate('setting');
-  const changeLanguage = useChangeLanguage();
 
   const onFinish = async (values: any) => {
     const avatar = await getBase64FromUploadFileList(values.avatar);
@@ -126,39 +123,6 @@ const UserSettingProfile = () => {
                 </div>
               </button>
             </Upload>
-          </Form.Item>
-          <Divider />
-          <Form.Item<FieldType>
-            label={t('colorSchema')}
-            name="color_schema"
-            rules={[{ required: true, message: t('colorSchemaMessage') }]}
-          >
-            <Select placeholder={t('colorSchemaPlaceholder')}>
-              <Option value="Bright">{t('bright')}</Option>
-              <Option value="Dark">{t('dark')}</Option>
-            </Select>
-          </Form.Item>
-          <Divider />
-          <Form.Item<FieldType>
-            label={t('language', { keyPrefix: 'common' })}
-            name="language"
-            rules={[
-              {
-                required: true,
-                message: t('languageMessage', { keyPrefix: 'common' }),
-              },
-            ]}
-          >
-            <Select
-              placeholder={t('languagePlaceholder', { keyPrefix: 'common' })}
-              onChange={changeLanguage}
-            >
-              {LanguageList.map((x) => (
-                <Option value={x} key={x}>
-                  {t(camelCase(x), { keyPrefix: 'common' })}
-                </Option>
-              ))}
-            </Select>
           </Form.Item>
           <Divider />
           <Form.Item<FieldType>

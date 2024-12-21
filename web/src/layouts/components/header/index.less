@@ -18,7 +18,7 @@
 
 .appIcon {
   vertical-align: middle;
-  max-width: 36px;
+  max-width: 120px;
 }
 
 .appName {
@@ -38,32 +38,41 @@
     background-color: rgba(249, 249, 249, 1);
     font-weight: @fontWeight700;
     color: rgba(29, 25, 41, 1);
+
     &::before {
       display: none !important;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked) {
     border-radius: 6px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark) {
     border-radius: 0px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark.first) {
     border-top-left-radius: 6px !important;
     border-bottom-left-radius: 6px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark.last) {
     border-top-right-radius: 6px !important;
     border-bottom-right-radius: 6px !important;
+
     & a {
       color: white;
     }
@@ -78,32 +87,41 @@
     background-color: rgba(249, 249, 249, 0.25);
     font-weight: @fontWeight700;
     color: rgba(29, 25, 41, 1);
+
     &::before {
       display: none !important;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked) {
     border-radius: 6px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark) {
     border-radius: 0px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark.first) {
     border-top-left-radius: 6px !important;
     border-bottom-left-radius: 6px !important;
+
     & a {
       color: white;
     }
   }
+
   :global(.ant-radio-button-wrapper-checked.dark.last) {
     border-top-right-radius: 6px !important;
     border-bottom-right-radius: 6px !important;
+
     & a {
       color: white;
     }
@@ -113,6 +131,7 @@
 .ant-radio-button-wrapper-checked {
   border-radius: 6px !important;
 }
+
 .radioButtonIcon {
   vertical-align: middle;
   max-width: 15px;

@@ -52,8 +52,7 @@ export default {
       register: '创建账户',
       continue: '继续',
       title: '开始构建您的智能助手',
-      description:
-        '免费注册以探索顶级 RAG 技术。 创建知识库和人工智能来增强您的业务',
+      description: 'GotoAI 顶级 RAG 技术。 创建知识库和人工智能来增强您的业务',
       review: '来自 500 多条评论',
     },
     header: {
@@ -63,6 +62,7 @@ export default {
       signin: '登录',
       home: '首页',
       setting: '用户设置',
+      systemSetting: '系统设置',
       logout: '登出',
       fileManager: '文件管理',
       flow: 'Agent',
@@ -102,7 +102,7 @@ export default {
       processBeginAt: '开始于',
       processDuration: '持续时间',
       progressMsg: '进度',
-      testingDescription: '最后一步！ 成功后，剩下的就交给 RAGFlow 吧。',
+      testingDescription: '最后一步！',
       similarityThreshold: '相似度阈值',
       similarityThresholdTip:
         '我们使用混合相似度得分来评估两行文本之间的距离。 它是加权关键词相似度和向量余弦相似度。 如果查询和块之间的相似度小于此阈值，则该块将被过滤掉。',
@@ -247,7 +247,7 @@ export default {
       简历有多种格式，就像一个人的个性一样，但我们经常必须将它们组织成结构化数据，以便于搜索。
       </p><p>
       我们不是将简历分块，而是将简历解析为结构化数据。 作为HR，你可以扔掉所有的简历，
-      您只需与<i>'RAGFlow'</i>交谈即可列出所有符合资格的候选人。
+      您只需与<i>'GotoAI RAG'</i>交谈即可列出所有符合资格的候选人。
       </p>
         `,
       table: `支持<p><b>EXCEL</b>和<b>CSV/TXT</b>格式文件。</p><p>
@@ -419,6 +419,7 @@ export default {
       preview: '预览',
       embedded: '嵌入',
       serviceApiEndpoint: '服务API端点',
+      api: 'API',
       apiKey: 'API KEY',
       apiReference: 'API 文档',
       dateRange: '日期范围：',

@@ -14,8 +14,10 @@ export default defineConfig({
   esbuildMinifyIIFE: true,
   icons: {},
   hash: true,
-  favicons: ['/logo.svg'],
-  clickToComponent: {},
+  favicons: ['/favicon.ico'],
+  clickToComponent: {
+    editor: 'cursor',
+  },
   history: {
     type: 'browser',
   },
@@ -48,4 +50,9 @@ export default defineConfig({
     return memo;
   },
   tailwindcss: {},
+  inspectorConfig: {
+    exclude: [],
+    babelPlugins: [],
+    babelOptions: {},
+  },
 });

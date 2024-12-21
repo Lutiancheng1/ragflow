@@ -10,6 +10,7 @@ export enum Routes {
   ProfileSetting = '/profile-setting',
   DatasetTesting = '/testing',
   DatasetSetting = '/setting',
+  SystemSetting = '/system-setting',
 }
 
 const routes = [
@@ -121,6 +122,10 @@ const routes = [
       {
         path: '/search',
         component: '@/pages/search',
+      },
+      {
+        path: Routes.SystemSetting,
+        component: '@/pages/system-setting',
       },
     ],
   },

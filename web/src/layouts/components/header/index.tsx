@@ -1,8 +1,8 @@
 import { ReactComponent as FileIcon } from '@/assets/svg/file-management.svg';
 import { ReactComponent as GraphIcon } from '@/assets/svg/graph.svg';
 import { ReactComponent as KnowledgeBaseIcon } from '@/assets/svg/knowledge-base.svg';
+import { ReactComponent as SettingIcon } from '@/assets/svg/setting.svg';
 import { useTranslate } from '@/hooks/common-hooks';
-import { useFetchAppConf } from '@/hooks/logic-hooks';
 import { useNavigateWithFromState } from '@/hooks/route-hook';
 import { MessageOutlined, SearchOutlined } from '@ant-design/icons';
 import { Flex, Layout, Radio, Space, theme } from 'antd';
@@ -22,7 +22,6 @@ const RagHeader = () => {
   const navigate = useNavigateWithFromState();
   const { pathname } = useLocation();
   const { t } = useTranslate('header');
-  const appConf = useFetchAppConf();
   const { theme: themeRag } = useTheme();
   const tagsData = useMemo(
     () => [
@@ -31,6 +30,7 @@ const RagHeader = () => {
       { path: '/search', name: t('search'), icon: SearchOutlined },
       { path: '/flow', name: t('flow'), icon: GraphIcon },
       { path: '/file', name: t('fileManager'), icon: FileIcon },
+      { path: '/system-setting', name: t('systemSetting'), icon: SettingIcon },
     ],
     [t],
   );
@@ -65,14 +65,13 @@ const RagHeader = () => {
         height: '72px',
       }}
     >
-      <a href={window.location.origin}>
+      <a href={window.location.origin} className="flex items-center">
         <Space
           size={12}
           onClick={handleLogoClick}
           className={styles.logoWrapper}
         >
-          <img src="/logo.svg" alt="" className={styles.appIcon} />
-          <span className={styles.appName}>{appConf.appName}</span>
+          <img src="/logo.png" alt="" className={styles.appIcon} />
         </Space>
       </a>
       <Space size={[0, 8]} wrap>
