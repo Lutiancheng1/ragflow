@@ -5,7 +5,7 @@ slug: /http_api_reference
 
 # HTTP API Reference
 
-A complete reference for GotoAI's RESTful API. Before proceeding, please ensure you have your GotoAI RAG API key ready for authentication.
+A complete reference for GotoAI's RESTful API. Before proceeding, please ensure you have your GotoRAG API key ready for authentication.
 
 ---
 
