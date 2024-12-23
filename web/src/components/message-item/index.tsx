@@ -106,7 +106,7 @@ const MessageItem = ({
           })}
         >
           {item.role === MessageType.User ? (
-            <Avatar size={40} src={avatar ?? '/logo.png'} />
+            <Avatar size={40} src={avatar ?? '/avatar.jpeg'} />
           ) : avatardialog ? (
             <Avatar size={40} src={avatardialog} />
           ) : (
