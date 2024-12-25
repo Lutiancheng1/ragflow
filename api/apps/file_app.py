@@ -371,3 +371,46 @@ def move():
         return get_json_result(data=True)
     except Exception as e:
         return server_error_response(e)
+
+
+@manager.route('/public/get/<file_id>', methods=['GET'])  # add public get file
+def public_get(file_id):
+    """
+    Public endpoint to get file content without login required
+    """
+    try:
+        # 1. Get file info by file_id
+        e, file = FileService.get_by_id(file_id)
+        if not e:
+            return get_data_error_result(message="Document not found!")
+
+        # 2. Get file content from storage
+        blob = STORAGE_IMPL.get(file.parent_id, file.location)
+        if not blob:
+            # If direct access fails, try to get storage address from file2document
+            b, n = File2DocumentService.get_storage_address(file_id=file_id)
+            blob = STORAGE_IMPL.get(b, n)
+
+        # 3. Create response
+        response = flask.make_response(blob)
+        
+        # 4. Set correct Content-Type based on file extension
+        ext = re.search(r"\.([^.]+)$", file.name)
+        if ext:
+            if file.type == FileType.VISUAL.value:
+                # For image files
+                response.headers.set('Content-Type', 'image/%s' % ext.group(1))
+            else:
+                # For other file types
+                response.headers.set(
+                    'Content-Type',
+                    'application/%s' % ext.group(1))
+                    
+        # 5. Add CORS headers to allow cross-origin access
+        response.headers.set('Access-Control-Allow-Origin', '*')
+        response.headers.set('Access-Control-Allow-Methods', 'GET')
+        response.headers.set('Access-Control-Allow-Headers', 'Content-Type')
+        
+        return response
+    except Exception as e:
+        return server_error_response(e)
