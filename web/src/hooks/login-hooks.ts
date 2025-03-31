@@ -51,6 +51,37 @@ export const useLogin = () => {
   return { data, loading, login: mutateAsync };
 };
 
+export const useLoginNoMessage = () => {
+  const {
+    data,
+    isPending: loading,
+    mutateAsync,
+  } = useMutation({
+    mutationKey: ['login'],
+    mutationFn: async (params: { email: string; password: string }) => {
+      const { data: res = {}, response } = await userService.login(params);
+      if (res.code === 0) {
+        const { data } = res;
+        const authorization = response.headers.get(Authorization);
+        const token = data.access_token;
+        const userInfo = {
+          avatar: data.avatar,
+          name: data.nickname,
+          email: data.email,
+        };
+        authorizationUtil.setItems({
+          Authorization: authorization,
+          userInfo: JSON.stringify(userInfo),
+          Token: token,
+        });
+      }
+      return res.code;
+    },
+  });
+
+  return { data, loading, login: mutateAsync };
+};
+
 export const useRegister = () => {
   const { t } = useTranslation();
 

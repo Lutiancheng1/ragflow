@@ -51,7 +51,7 @@ const ChatApiKeyModal = ({
         cancelButtonProps={{ style: { display: 'none' } }}
         style={{ top: 300 }}
         onOk={hideModal}
-        width={'50vw'}
+        width={'80vw'}
       >
         <Table
           columns={columns}

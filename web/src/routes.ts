@@ -256,6 +256,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/embed/model-provider',
+    component: '@/wrappers/embed-auth',
+    layout: false,
+  },
 ];
 
 export default routes;

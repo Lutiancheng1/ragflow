@@ -36,7 +36,7 @@ export default defineConfig({
   proxy: [
     {
       context: ['/api', '/v1'],
-      target: 'http://127.0.0.1:9380/',
+      target: 'http://4.236.163.139:9380/',
       changeOrigin: true,
       ws: true,
       logger: console,
@@ -49,7 +49,12 @@ export default defineConfig({
 
     return memo;
   },
-  tailwindcss: {},
+  tailwindcss: {
+    timeout: 10000,
+    watchOptions: {
+      ignored: ['**/node_modules/**', '**/.git/**'],
+    },
+  },
   inspectorConfig: {
     exclude: [],
     babelPlugins: [],
